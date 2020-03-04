@@ -1,35 +1,40 @@
-package sample;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+package skaar;
 
 public class Main {
 
     public static void main(String[] args) {
-        Oppg1_Rekursjon oppg1 = new Oppg1_Rekursjon();
-        System.out.println(oppg1.sum(5,0));
-        System.out.println(oppg1.pow(5,5));
-        int[] array = {2, 3, 1, 4, 5};
-        oppg1.backwardsArray(array, array.length-1);
-        System.out.println(oppg1.smallestNumberInArray(array, 0, Integer.MAX_VALUE));
-        System.out.println(oppg1.searchRec(array, 0, array.length-1, 3));
+        Oppgave1 op1 = new Oppgave1();
+        System.out.println(op1.pow(5,5));
+        int[] array = {1, 2, 3, 4, 5};
+        op1.backwardsArray(array, array.length-1);
 
-        /*
-        OPPGAVE 3 - Designmønstre
-        3.1 Eksempel på problem som kan løses av State designmønster:
-            Det skal implementeres et system for å varsle fører når bensintank er full, lav eller kritisk lav.
+        int x = 3;
 
-            Eksempel på problem som kan løses av Strategy designmønster:
-            Det skal implementeres et betalingssystem der bruker kan betale med kredittkort, PayPal eller Vipps (Eks: RuterBillett-appen).
 
-         3.3 1. draw() metoden burde være abstrakt fordi alle formene skal tegnes med metoden, men må tegnes på forskjellig måte.
-             2.
-             3. Composite designmønsteret kan brukes til å la en gruppe med former være representert som ett objekt ved å implementere
-                et felles interface, og la hver form være en egen klasse som implementerer denne.
-         */
+        System.out.println(op1.searchRec(array, 0, array.length-1, x));
+
+        String[] sarray = {"One", "Two", "Three", "Four", "Five"};
+        ArrayPrinter<String> stringArrayPrinter = new ArrayPrinter<>(String.class, sarray);
+        Integer[] iarray = {1, 2, 3, 4, 5};
+        ArrayPrinter<Integer> integerArrayPrinter = new ArrayPrinter<>(Integer.class, iarray);
+        stringArrayPrinter.printArray();
+        stringArrayPrinter.reverseArray();
+        integerArrayPrinter.printArray();
+        integerArrayPrinter.reverseArray();
+
+        ArrayList<String> stringArrayList = new ArrayList<>(String.class, 5);
+        stringArrayList.add("One");
+        stringArrayList.add("Two");
+        stringArrayList.add("Three");
+        System.out.println(stringArrayList.get(2));
+        System.out.println(stringArrayList.size());
+
+        BensinStateContext bensinStateContext = new BensinStateContext();
+        System.out.println(bensinStateContext.getStatus());
+        bensinStateContext.setState(new Tank_lav());
+        System.out.println(bensinStateContext.getStatus());
+        bensinStateContext.setState(new Tank_kritisk());
+        System.out.println(bensinStateContext.getStatus());
     }
 
 }
