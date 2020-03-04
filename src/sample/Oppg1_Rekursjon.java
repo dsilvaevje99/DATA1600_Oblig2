@@ -28,4 +28,28 @@ public class Oppg1_Rekursjon {
         backwardsArray(array, index-1);
     }
 
+    //Oppgave 1.4
+    int smallestNumberInArray(int[] array, int index, int num) {
+        if(index == array.length -1) {
+            return num;
+        }
+        if(array[index] < num) {
+            num = array[index];
+        }
+        return smallestNumberInArray(array, index+1, num);
+    }
+
+    int searchRec(int[] arr, int s, int e, int x) {
+        if(e < s) {
+            return -1;
+        }
+        if(arr[s] == x) {
+            return s;
+        }
+        if(arr[e] == x) {
+            return e;
+        }
+        return searchRec(arr, s+1, e-1, x);
+    }
+
 }
