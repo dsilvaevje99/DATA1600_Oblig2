@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="gp" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -13,11 +13,14 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="492.0" prefWidth="643.0" GridPane.columnIndex="1">
+      <AnchorPane fx:id="ap" prefHeight="492.0" prefWidth="643.0" GridPane.columnIndex="1">
          <children>
-            <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="480.0" prefWidth="643.0" />
-            <Button mnemonicParsing="false" text="Open file" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Button mnemonicParsing="false" text="Save file" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="5.0" />
+            <Label text="File:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="8.0" />
+            <TextField fx:id="fileName" promptText="File Name" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="5.0" />
+            <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutY="36.0" prefHeight="454.0" prefWidth="643.0" />
+            <Button fx:id="openFile" mnemonicParsing="false" onAction="#openButtonAction" text="Open file" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <Button fx:id="saveFile" mnemonicParsing="false" onAction="#saveButtonAction" text="Save file" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="fileVersion" promptText="Version #" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
    </children>
