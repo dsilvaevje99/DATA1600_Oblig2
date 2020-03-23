@@ -1,4 +1,4 @@
-package skaar;
+package sample;
 
 interface BensinStatus {
     String getStatus(BensinStateContext ctx);

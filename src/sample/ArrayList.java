@@ -1,4 +1,4 @@
-package skaar;
+package sample;
 
 import java.lang.reflect.Array;
 

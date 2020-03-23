@@ -1,4 +1,4 @@
-package skaar;
+package sample;
 
 public class Oppgave1 {
     int pow (int base, int exponent){

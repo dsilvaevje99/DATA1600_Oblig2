@@ -29,6 +29,24 @@ public class Main extends Application {
         System.out.println(oppg1.smallestNumberInArray(array, 0, Integer.MAX_VALUE));
         System.out.println(oppg1.searchRec(array, 0, array.length-1, 3));
 
+        String[] sarray = {"One", "Two", "Three", "Four", "Five"};
+        ArrayPrinter<String> stringArrayPrinter = new ArrayPrinter<>(String.class, sarray);
+        Integer[] iarray = {1, 2, 3, 4, 5};
+        ArrayPrinter<Integer> integerArrayPrinter = new ArrayPrinter<>(Integer.class, iarray);
+        stringArrayPrinter.printArray();
+        stringArrayPrinter.reverseArray();
+        integerArrayPrinter.printArray();
+        integerArrayPrinter.reverseArray();
+
+        ArrayList<String> stringArrayList = new ArrayList<>(String.class, 5);
+        stringArrayList.add("One");
+        stringArrayList.add("Two");
+        stringArrayList.add("Three");
+        System.out.println(stringArrayList.get(2));
+        System.out.println(stringArrayList.size());
+
+        //Oppgave 2 Generisk programmering:
+
         /*
         OPPGAVE 3 - Designmønstre
         3.1 Eksempel på problem som kan løses av State designmønster:
@@ -42,6 +60,12 @@ public class Main extends Application {
              3. Composite designmønsteret kan brukes til å la en gruppe med former være representert som ett objekt ved å implementere
                 et felles interface, og la hver form være en egen klasse som implementerer denne.
          */
+        BensinStateContext bensinStateContext = new BensinStateContext();
+        System.out.println(bensinStateContext.getStatus());
+        bensinStateContext.setState(new Tank_lav());
+        System.out.println(bensinStateContext.getStatus());
+        bensinStateContext.setState(new Tank_kritisk());
+        System.out.println(bensinStateContext.getStatus());
     }
 
 }
